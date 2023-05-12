@@ -1,0 +1,19 @@
+.header {
+    text-align: left;
+}
+
+body {
+    background: red;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+@media (min-width: 600px) {
+    body {
+        background: green;
+    }
+}

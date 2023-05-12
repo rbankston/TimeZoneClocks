@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Clock } from './Models/Clocks';
+import './Clocks.css'
+import { Header } from './Header';
+
 
 function App() {
 
@@ -12,8 +15,8 @@ function App() {
   return (
     <div className="App">
       
+    <Header></Header>
     
-
     </div>
   );
 }
