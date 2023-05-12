@@ -1,5 +1,4 @@
-import './Clocks.css'
-
+import "../../Clocks.css";
 interface Props {
   children: string;
   color?: string;
