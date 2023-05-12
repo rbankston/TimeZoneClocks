@@ -1,3 +1,5 @@
+import './Clocks.css'
+
 interface Props {
   children: string;
   color?: string;
