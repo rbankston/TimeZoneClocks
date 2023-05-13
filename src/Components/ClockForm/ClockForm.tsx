@@ -6,7 +6,7 @@ interface ClockFormProps {
   updateClock: (updatedClock: Clock) => void;
 }
 
-const ClockForm: React.FC<ClockFormProps> = ({ clock, updateClock }) => {
+function ClockForm({ clock, updateClock }: ClockFormProps) {
   const handleTimeZoneChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     updateClock({ ...clock, timeZone: value });
@@ -37,6 +37,6 @@ const ClockForm: React.FC<ClockFormProps> = ({ clock, updateClock }) => {
       </label>
     </div>
   );
-};
+}
 
 export default ClockForm;
