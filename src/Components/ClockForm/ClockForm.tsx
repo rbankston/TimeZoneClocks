@@ -1,5 +1,7 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Clock } from "../../Models/Clocks";
+import TimezoneSelect, { allTimezones } from "react-timezone-select";
+import type { ITimezone } from "react-timezone-select";
 
 interface ClockFormProps {
   clock: Clock;
@@ -12,6 +14,10 @@ function ClockForm({ clock, updateClock }: ClockFormProps) {
     updateClock({ ...clock, timeZone: value });
   };
 
+  const [tz, setTz] = useState<ITimezone>(
+    Intl.DateTimeFormat().resolvedOptions().timeZone
+  );
+
   const handleIsDigitalChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
     updateClock({ ...clock, isDigital: checked });
@@ -21,10 +27,12 @@ function ClockForm({ clock, updateClock }: ClockFormProps) {
     <div>
       <label>
         Time Zone:
-        <input
-          type="text"
-          value={clock.timeZone}
-          onChange={handleTimeZoneChange}
+        <TimezoneSelect
+          value={tz}
+          onChange={setTz}
+          timezones={{
+            ...allTimezones,
+          }}
         />
       </label>
       <label>
