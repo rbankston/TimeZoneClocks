@@ -1,19 +1,53 @@
 .header {
-    text-align: left;
+    text-align: center;  
+}
+
+.addClock {
+    size: 50px;
 }
 
 body {
     background: red;
     margin-left: 20px;
+    margin-right: 20px;
+    align-items: left;
+}
+
+.headings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.analog {
+    padding: 50px;
+}
+
+.digital {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 
 
 
-
-
 @media (min-width: 600px) {
+    .header {
+    background-color: white;
+    }
+
+    .headings {
+        background-color: white;
+        size: 100px;
+    }
+
+    body{
+        background-color: green;
+    }
+
     body {
-        background: green;
+        background-image: url(https://images.unsplash.com/photo-1415604934674-561df9abf539?ixlib=rb-4.0.3&dpr=1&auto=format&fit=crop&w=120&h=200&q=60);
+        background-size: auto;
     }
 }

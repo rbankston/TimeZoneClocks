@@ -1,5 +1,5 @@
+import { ClockDisplay } from "./ClockDisplay";
 import { Clock } from "./Models/Clocks";
-
 
 export function Clocks (props: { clocks: Clock[]}){
 

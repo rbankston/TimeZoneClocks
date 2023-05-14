@@ -19,7 +19,7 @@ return (
     <>
       <div className="play-details">
         <div className="play-details-body">
-          <h1 className="clock-play-heading">Analog Clock</h1>
+          <h1 className="clock-play-heading">Keeping Time</h1>
           <div className="analong-clock-container">
             <div className="clock">
               <div
