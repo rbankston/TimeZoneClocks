@@ -5,8 +5,8 @@
     font-weight: bold;
   }
   .clock {
-    max-width: 375px;
-    height: 375px;
+    max-width: 150px;
+    height: 150px;
     border: 10px solid #e6e6e6;
     margin: 0 auto;
     border-radius: 50%;
@@ -28,7 +28,7 @@
   }
   .hour-hand {
     width: 10px;
-    height: 100px;
+    height: 50px;
     background: #e8e5ef;
     position: absolute;
     left: 50%;
@@ -38,7 +38,7 @@
   }
   .minute-hand {
     width: 5px;
-    height: 134px;
+    height: 60px;
     background: #ffffff;
     position: absolute;
     left: 50%;
@@ -48,7 +48,7 @@
   }
   .second-hand {
     width: 2px;
-    height: 155px;
+    height: 65px;
     background: yellow;
     position: absolute;
     left: 50%;
@@ -73,16 +73,16 @@
   
   @media only screen and (max-width: 420px) {
     .clock {
-      width: 310px;
-      height: 310px;
+      width: 150px;
+      height: 150px;
     }
     .hour-hand {
-      height: 100px;
+      height: 50px;
     }
     .minute-hand {
-      height: 118px;
+      height: 60px;
     }
     .second-hand {
-      height: 135px;
+      height: 65px;
     }
   }
