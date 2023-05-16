@@ -38,15 +38,15 @@ function App() {
       } }></ClockDisplay> */}
      <div className='analog'><AnalogClock></AnalogClock></div>
      <div className='digital'><DigitalClock></DigitalClock></div>
-     <Settings clocks={clocks} updateClock={(index, updatedClock) => {
+     <div>   <Settings clocks={clocks} updateClock={(index, updatedClock) => {
         setClocks(prevClocks => {
           const newClocks = [...prevClocks];
           newClocks[index] = updatedClock;
           return newClocks;
         });
-      }}
+      }}></Settings></div>
     </div>
   )
 }
 
-export default App()
+export default App;
