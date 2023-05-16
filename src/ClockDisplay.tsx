@@ -5,7 +5,7 @@ export function ClockDisplay(props: { clocks: Clock, onUpdate: (clocks: Clock) =
     return (
         <div>
             <div className={props.clocks.isDigital ? "digital" : "analog"}>
-
+                
             </div>
         </div>
 
