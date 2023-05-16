@@ -1,11 +1,8 @@
 import React from "react";
+import { Clock } from "../../Models/Clocks";
 import ClockForm from "../ClockForm/ClockForm";
 import { Button } from "../Button/Button";
-
-interface Clock {
-  timeZone: string;
-  isDigital: boolean;
-}
+import type { ITimezone } from "react-timezone-select";
 
 interface SettingsProps {
   clocks: Clock[];

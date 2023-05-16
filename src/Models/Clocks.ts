@@ -1,4 +1,5 @@
+import type { ITimezone } from "react-timezone-select";
 export interface Clock {
-  timeZone: string;
+  timeZone?: ITimezone;
   isDigital: boolean;
 }
