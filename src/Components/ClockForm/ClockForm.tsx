@@ -24,26 +24,28 @@ function ClockForm({ clock, updateClock }: ClockFormProps) {
   };
 
   return (
-    <div>
-      <label>
-        Time Zone:
-        <TimezoneSelect
-          value={tz}
-          onChange={setTz}
-          timezones={{
-            ...allTimezones,
-          }}
-        />
-      </label>
-      <label>
-        Is Digital:
-        <input
-          type="checkbox"
-          checked={clock.isDigital}
-          onChange={handleIsDigitalChange}
-        />
-      </label>
-    </div>
+    <>
+      <td>
+        <label>
+          Time Zone:
+          <TimezoneSelect
+            value={tz}
+            onChange={setTz}
+            timezones={{
+              ...allTimezones,
+            }}
+          />
+        </label>
+        <label>
+          Is Digital:
+          <input
+            type="checkbox"
+            checked={clock.isDigital}
+            onChange={handleIsDigitalChange}
+          />
+        </label>
+      </td>
+    </>
   );
 }
 

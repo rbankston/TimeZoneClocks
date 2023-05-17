@@ -1,17 +1,18 @@
 import { ClockDisplay } from "./ClockDisplay";
 import { Clock } from "./Models/Clocks";
 
-export function Clocks (props: { clocks: Clock[]}){
+interface Props {
+  clocks: Clock[];
+}
 
-    return (
+export function Clocks({ clocks }: Props) {
+  return (
+    <div>
+      {clocks.map((clock) => (
         <div>
-            {
-            props.clocks.map((clock) => (<ClockDisplay clocks={clock} onUpdate={function (clocks: Clock): void {
-                throw new Error("Function not implemented.");
-            } } onDelete={function (clocks: Clock): void {
-                throw new Error("Function not implemented.");
-            } } ></ClockDisplay>))
-}  
+          <ClockDisplay clocks={clock} />
         </div>
-    )
+      ))}
+    </div>
+  );
 }

@@ -1,13 +1,20 @@
+import AnalogClock from "./AnalogClock";
+import DigitalClock from "./DigitalClock";
 import { Clock } from "./Models/Clocks";
 
-export function ClockDisplay(props: { clocks: Clock, onUpdate: (clocks: Clock) => void, onDelete: (clocks: Clock) => void }) {
+interface Props {
+  clocks: Clock;
+  //   onUpdate: () => void;
+}
 
-    return (
-        <div>
-            <div className={props.clocks.isDigital ? "digital" : "analog"}>
-                
-            </div>
-        </div>
-
-    )
+export function ClockDisplay({ clocks }: Props) {
+  return (
+    <>
+      <div className="singleRow">
+        <td className={clocks.isDigital ? "digital" : "analog"}>
+          {clocks.isDigital ? <DigitalClock /> : <AnalogClock />}
+        </td>
+      </div>
+    </>
+  );
 }
