@@ -11,7 +11,7 @@ import { Clocks } from "./Clocks";
 import { Button } from "./Components/Button/Button";
 
 function App() {
-  const [clocks, setClocks] = useState<Clock[]>([]);
+  const [clocks, setClocks] = useState<Clock[]>([{ isDigital: true }]);
 
   const addClock = () => {
     setClocks((prevClocks) => [
@@ -44,6 +44,9 @@ function App() {
           <Clocks clocks={clocks} />
         </div>
       </table>
+      <div>
+        <DigitalClock />
+      </div>
     </div>
   );
 }
