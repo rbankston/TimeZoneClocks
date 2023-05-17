@@ -18,12 +18,16 @@ export function Settings({ clocks, updateClock }: SettingsProps) {
   return (
     <div>
       {clocks.map((clock, index) => (
-        <div key={index}>
-          <ClockForm
-            clock={clock}
-            updateClock={(updatedClock) => updateClock(index, updatedClock)}
-          />
-          <Button onClick={() => console.log()}>Delete</Button>
+        <div className="singleRow">
+          <tr key={index}>
+            <td>
+              <ClockForm
+                clock={clock}
+                updateClock={(updatedClock) => updateClock(index, updatedClock)}
+              />
+              <Button onClick={() => console.log()}>Delete</Button>
+            </td>
+          </tr>
         </div>
       ))}
     </div>
