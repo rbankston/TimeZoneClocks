@@ -3,9 +3,9 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/rbankston/TimeZoneClocks) ![GitHub last commit](https://img.shields.io/github/last-commit/rbankston/TimeZoneClocks)
 
 A web app developed by 
-[Ralph Bankston](https://github.com/rbankston)
-[Jennifer Inskip](https://github.com/JennaMeri625)
-[Shelby Wright-Howard](https://github.com/shelbysue)
+* [Ralph Bankston](https://github.com/rbankston)
+* [Jennifer Inskip](https://github.com/JennaMeri625)
+* [Shelby Wright-Howard](https://github.com/shelbysue)
 
 Created using React, HTML, CSS, TypeScript & JavaScript.
 
