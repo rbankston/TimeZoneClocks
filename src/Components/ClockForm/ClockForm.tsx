@@ -5,23 +5,31 @@ import type { ITimezone } from "react-timezone-select";
 
 interface ClockFormProps {
   clock: Clock;
-  updateClock: (updatedClock: Clock) => void;
+  updateClock: (newClock: Clock) => void;
 }
 
+
+
 function ClockForm({ clock, updateClock }: ClockFormProps) {
-  const handleTimeZoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    updateClock({ ...clock, timeZone: value });
-  };
+  // const handleTimeZoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const { value } = e.target;
+  //   updateClock({ ...clock, timeZone: value });
+  // };
+  
+  const [isDigital, setIsDigital] = useState(false);
 
   const [tz, setTz] = useState<ITimezone>(
     Intl.DateTimeFormat().resolvedOptions().timeZone
   );
 
-  const handleIsDigitalChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { checked } = e.target;
-    updateClock({ ...clock, isDigital: checked });
-  };
+const checkedChange = (e: any) => {
+    setIsDigital(e.target.checked);
+    let newClock: Clock = {
+      ...clock, isDigital: isDigital
+    };
+    updateClock(newClock);
+
+}
 
   return (
     <>
@@ -40,8 +48,8 @@ function ClockForm({ clock, updateClock }: ClockFormProps) {
           Is Digital:
           <input
             type="checkbox"
-            checked={clock.isDigital}
-            onChange={handleIsDigitalChange}
+            checked={isDigital}
+            onChange={e => checkedChange(e.target.checked)}
           />
         </label>
       </td>
