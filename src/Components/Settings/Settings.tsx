@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Clock } from "../../Models/Clocks";
 import ClockForm from "../ClockForm/ClockForm";
 import { Button } from "../Button/Button";
@@ -6,13 +6,23 @@ import type { ITimezone } from "react-timezone-select";
 
 interface SettingsProps {
   clocks: Clock[];
-  updateClock: (index: number, updatedClock: Clock) => void;
+  deleteClocks: (index: number) => void;
+  updateClocks: (clocks: Clock[]) => void;
 }
 
-export function Settings({ clocks, updateClock }: SettingsProps) {
-  const handleDeleteClick = (index: number) => {
-    // Call the updateClock function with an empty clock object to delete the clock at the specified index
-    updateClock(index, { timeZone: "", isDigital: false });
+export function Settings({
+  clocks,
+  deleteClocks,
+  updateClocks,
+}: SettingsProps) {
+  const [newClock, updateNewClock] = useState<Clock[]>(clocks);
+
+  const provideIndex = (index: number) => {
+    deleteClocks(index);
+  };
+  const deleteClockByIndex = (index: number) => {
+    updateNewClock([...clocks.slice(0, index), ...clocks.slice(index + 1)]);
+    updateClocks(newClock);
   };
 
   return (
@@ -23,9 +33,9 @@ export function Settings({ clocks, updateClock }: SettingsProps) {
             <td>
               <ClockForm
                 clock={clock}
-                updateClock={(updatedClock) => updateClock(index, updatedClock)}
+                updateSingleClock={(updatedClock) => console.log(updatedClock)}
               />
-              <Button onClick={() => console.log()}>Delete</Button>
+              <button onClick={() => provideIndex(index)}>Delete</button>
             </td>
           </tr>
         </div>
