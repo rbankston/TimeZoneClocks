@@ -11,6 +11,8 @@ Created using React, HTML, CSS, TypeScript & JavaScript.
 
 A web app that allows you to keep track of multiple timezones from a single screen. 
 
+![Time Zone Clocks App](./public/TimeZoneApp.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
