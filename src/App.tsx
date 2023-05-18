@@ -11,13 +11,21 @@ import { Clocks } from "./Clocks";
 import { Button } from "./Components/Button/Button";
 
 function App() {
-  const [clocks, setClocks] = useState<Clock[]>([{ isDigital: true }]);
+  const [clocks, setClocks] = useState<Clock[]>([]);
+
+  const updatedClock = () => {
+    setClocks(clocks);
+  };
 
   const addClock = () => {
     setClocks((prevClocks) => [
       ...prevClocks,
       { timeZone: "", isDigital: false },
     ]);
+  };
+
+  const deleteClockByIndex = (index: number) => {
+    setClocks([...clocks.slice(0, index), ...clocks.slice(index + 1)]);
   };
 
   return (
@@ -34,19 +42,12 @@ function App() {
         <div className="ClockHolder">
           <Settings
             clocks={clocks}
-            updateClock={(updatedClock) => {
-              setClocks((prevClocks) => {
-                const newClocks = [...prevClocks];
-                return newClocks;
-              });
-            }}
+            deleteClocks={deleteClockByIndex}
+            updateClocks={updatedClock}
           ></Settings>
           <Clocks clocks={clocks} />
         </div>
       </table>
-      <div>
-        <DigitalClock />
-      </div>
     </div>
   );
 }

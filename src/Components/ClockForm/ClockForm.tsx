@@ -5,31 +5,33 @@ import type { ITimezone } from "react-timezone-select";
 
 interface ClockFormProps {
   clock: Clock;
-  updateClock: (newClock: Clock) => void;
+  updateSingleClock: (newClock: Clock) => void;
 }
 
+function ClockForm({ clock, updateSingleClock }: ClockFormProps) {
+  const handleTimeZoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    let newClock = { timeZone: tz, isDigital: isDigital };
+    updateSingleClock(newClock);
+  };
 
-
-function ClockForm({ clock, updateClock }: ClockFormProps) {
-  // const handleTimeZoneChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const { value } = e.target;
-  //   updateClock({ ...clock, timeZone: value });
-  // };
-  
   const [isDigital, setIsDigital] = useState(false);
 
   const [tz, setTz] = useState<ITimezone>(
     Intl.DateTimeFormat().resolvedOptions().timeZone
   );
 
-const checkedChange = (e: any) => {
-    setIsDigital(e.target.checked);
-    let newClock: Clock = {
-      ...clock, isDigital: isDigital
-    };
-    updateClock(newClock);
+  function handleTzChange(event: any) {
+    setTz(event.value);
+    let newClock = { timeZone: tz, isDigital: isDigital };
+    updateSingleClock(newClock);
+  }
 
-}
+  function handleDigitalChange(event: any) {
+    setIsDigital(event.target.checked);
+    let newClock = { timeZone: tz, isDigital: isDigital };
+    updateSingleClock(newClock);
+  }
 
   return (
     <>
@@ -38,7 +40,7 @@ const checkedChange = (e: any) => {
           Time Zone:
           <TimezoneSelect
             value={tz}
-            onChange={setTz}
+            onChange={handleTzChange}
             timezones={{
               ...allTimezones,
             }}
@@ -49,7 +51,7 @@ const checkedChange = (e: any) => {
           <input
             type="checkbox"
             checked={isDigital}
-            onChange={e => checkedChange(e.target.checked)}
+            onChange={handleDigitalChange}
           />
         </label>
       </td>
